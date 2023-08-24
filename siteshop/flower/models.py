@@ -82,4 +82,3 @@ class Customer(models.Model):
 
     def __str__(self):
         return "Покупатель: {} {}".format(self.first_name, self.user.last_name)
-

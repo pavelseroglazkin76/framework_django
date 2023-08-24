@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+
 import os
 from pathlib import Path
 
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5(^137dfwv5*#dvpy)3l&ox#9i&ntwvs66(&e5n$-e4xnhx)n$'
+SECRET_KEY = 'django-insecure-6ozh6(&=^(-8$g*&7#@gb-57t)qccpmhsp2ll#lxg!(2qt^o&o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'flower_shop.apps.FlowerShopConfig',
+    'flower.apps.FlowerConfig',
 ]
 
 MIDDLEWARE = [
