@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block content %}
-       <section>
+<section>
     <div class="runner"><img src="{% static 'images/1963.jpg' %}"></div>
     <div class="benefit">
         <div class="privilege">
@@ -40,88 +40,90 @@
         </div>
         <div class="home-demo">
             <div class="slider owl-carousel">
-                                    <div class="about-left">
+                {%for item in brands %}
+                    <div class="about-left">
                         <figure class="effect-bubba">
-                            <img class="mg" src="/app/web/images/1.jpg">
+                            <img class="mg" src="{{ item.image.url }}">
                             <figcaption>
-                                <h4>Shenzhen Nongke</h4>
-                                <p>Самый эксклюзивный и дорогой цветок в мире</p>
+                                <h4>{{ item.title }}</h4>
+                                <p>{{ item.description }}</p>
                             </figcaption>
                         </figure>
                     </div>
-                                    <div class="about-left">
-                        <figure class="effect-bubba">
-                            <img class="mg" src="/app/web/images/2.jpg">
-                            <figcaption>
-                                <h4>Gold Of Kinabalu</h4>
-                                <p>Самый эксклюзивный и дорогой цветок в мире</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                                    <div class="about-left">
-                        <figure class="effect-bubba">
-                            <img class="mg" src="/app/web/images/3.jpg">
-                            <figcaption>
-                                <h4>Rainbow Roses</h4>
-                                <p>Радужные розы получены не путем селекции ,а это инженерное искусство, заключающееся в мастерстве смешивания красок</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                                    <div class="about-left">
-                        <figure class="effect-bubba">
-                            <img class="mg" src="/app/web/images/4.jpg">
-                            <figcaption>
-                                <h4>Gloriosa</h4>
-                                <p>Цветки этого растения напоминают языки пламени, а в переводе с латыни название цветка звучит как «прославленный»</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                                    <div class="about-left">
-                        <figure class="effect-bubba">
-                            <img class="mg" src="/app/web/images/5.jpg">
-                            <figcaption>
-                                <h4>Тюльпан-Король ночи</h4>
-                                <p>Его лепестки в зависимости от освещения то бархатно черного, то глубокого фиолетового оттенка</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                                    <div class="about-left">
-                        <figure class="effect-bubba">
-                            <img class="mg" src="/app/web/images/6.jpg">
-                            <figcaption>
-                                <h4>Strongylodon macrobotrys</h4>
-                                <p>Эту небесно голубую лиану в природе можно найти только в тропическом лесу Филиппин</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                                    <div class="about-left">
-                        <figure class="effect-bubba">
-                            <img class="mg" src="/app/web/images/7.jpg">
-                            <figcaption>
-                                <h4>Мединилла</h4>
-                                <p>Это растение считается одним из самых красивых в мире, садоводы и ботаники даже дали ей соответствующее прозвище "прекрасная"</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                                    <div class="about-left">
-                        <figure class="effect-bubba">
-                            <img class="mg" src="/app/web/images/8.jpg">
-                            <figcaption>
-                                <h4>Fredclarkeara</h4>
-                                <p>Была получена путем скрещивания трех видов орхидей. Создал этот удивительный сорт американский селекционер Фред Кларк.</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                                    <div class="about-left">
-                        <figure class="effect-bubba">
-                            <img class="mg" src="/app/web/images/9.jpg">
-                            <figcaption>
-                                <h4>Плетистая роза «Пьер де Ронсар»</h4>
-                                <p>Волшебной красоты плетистая роза,второе название у нее Райская роза</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                            </div>
+                {%endfor%}
+<!--                    <div class="about-left">-->
+<!--                        <figure class="effect-bubba">-->
+<!--                            <img class="mg" src="/app/web/images/2.jpg">-->
+<!--                            <figcaption>-->
+<!--                                <h4>Gold Of Kinabalu</h4>-->
+<!--                                <p>Самый эксклюзивный и дорогой цветок в мире</p>-->
+<!--                            </figcaption>-->
+<!--                        </figure>-->
+<!--                    </div>-->
+<!--                                    <div class="about-left">-->
+<!--                        <figure class="effect-bubba">-->
+<!--                            <img class="mg" src="/app/web/images/3.jpg">-->
+<!--                            <figcaption>-->
+<!--                                <h4>Rainbow Roses</h4>-->
+<!--                                <p>Радужные розы получены не путем селекции ,а это инженерное искусство, заключающееся в мастерстве смешивания красок</p>-->
+<!--                            </figcaption>-->
+<!--                        </figure>-->
+<!--                    </div>-->
+<!--                                    <div class="about-left">-->
+<!--                        <figure class="effect-bubba">-->
+<!--                            <img class="mg" src="/app/web/images/4.jpg">-->
+<!--                            <figcaption>-->
+<!--                                <h4>Gloriosa</h4>-->
+<!--                                <p>Цветки этого растения напоминают языки пламени, а в переводе с латыни название цветка звучит как «прославленный»</p>-->
+<!--                            </figcaption>-->
+<!--                        </figure>-->
+<!--                    </div>-->
+<!--                                    <div class="about-left">-->
+<!--                        <figure class="effect-bubba">-->
+<!--                            <img class="mg" src="/app/web/images/5.jpg">-->
+<!--                            <figcaption>-->
+<!--                                <h4>Тюльпан-Король ночи</h4>-->
+<!--                                <p>Его лепестки в зависимости от освещения то бархатно черного, то глубокого фиолетового оттенка</p>-->
+<!--                            </figcaption>-->
+<!--                        </figure>-->
+<!--                    </div>-->
+<!--                                    <div class="about-left">-->
+<!--                        <figure class="effect-bubba">-->
+<!--                            <img class="mg" src="/app/web/images/6.jpg">-->
+<!--                            <figcaption>-->
+<!--                                <h4>Strongylodon macrobotrys</h4>-->
+<!--                                <p>Эту небесно голубую лиану в природе можно найти только в тропическом лесу Филиппин</p>-->
+<!--                            </figcaption>-->
+<!--                        </figure>-->
+<!--                    </div>-->
+<!--                                    <div class="about-left">-->
+<!--                        <figure class="effect-bubba">-->
+<!--                            <img class="mg" src="/app/web/images/7.jpg">-->
+<!--                            <figcaption>-->
+<!--                                <h4>Мединилла</h4>-->
+<!--                                <p>Это растение считается одним из самых красивых в мире, садоводы и ботаники даже дали ей соответствующее прозвище "прекрасная"</p>-->
+<!--                            </figcaption>-->
+<!--                        </figure>-->
+<!--                    </div>-->
+<!--                                    <div class="about-left">-->
+<!--                        <figure class="effect-bubba">-->
+<!--                            <img class="mg" src="/app/web/images/8.jpg">-->
+<!--                            <figcaption>-->
+<!--                                <h4>Fredclarkeara</h4>-->
+<!--                                <p>Была получена путем скрещивания трех видов орхидей. Создал этот удивительный сорт американский селекционер Фред Кларк.</p>-->
+<!--                            </figcaption>-->
+<!--                        </figure>-->
+<!--                    </div>-->
+<!--                                    <div class="about-left">-->
+<!--                        <figure class="effect-bubba">-->
+<!--                            <img class="mg" src="/app/web/images/9.jpg">-->
+<!--                            <figcaption>-->
+<!--                                <h4>Плетистая роза «Пьер де Ронсар»</h4>-->
+<!--                                <p>Волшебной красоты плетистая роза,второе название у нее Райская роза</p>-->
+<!--                            </figcaption>-->
+<!--                        </figure>-->
+<!--                    </div>-->
+            </div>
         </div>
     </section>
 

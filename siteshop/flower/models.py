@@ -31,8 +31,8 @@ class Product(models.Model):
         (0, 'No'),
         (1, 'Yes'),
     ]
-    category_id = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.CASCADE)
-    brand_id = models.ForeignKey(Brand, verbose_name='Фирменный знак', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.CASCADE)
+    brand = models.ForeignKey(Brand, verbose_name='Фирменный знак', on_delete=models.CASCADE)
     title = models.CharField(max_length=225, verbose_name='Наименование')
     slug = models.SlugField(max_length=225, verbose_name='Url', unique=True)
     #image = models.ImageField(verbose_name='Изображение')
