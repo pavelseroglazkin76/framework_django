@@ -1,0 +1,86 @@
+{% load static %}
+{% load menu %}
+<div class="container">
+    <header class="header">
+        <div class="header_menu">
+<!--            <div class="header_section">-->
+<!--                <div class="header_item headerButton"><a href="#">О нас</a></div>-->
+<!--                <div class="header_item headerButton"><a href="#">Новости</a></div>-->
+<!--                <div class="header_item headerButton"><a href="#">Условия работы</a></div>-->
+<!--                <div class="header_item headerButton"><a href="#">Отзывы</a></div>-->
+<!--                <div class="header_item headerButton"><a href="#">Контакты</a></div>-->
+<!--                <div class="header_item headerButton"><a href="#">Статьи</a></div>-->
+<!--            </div>-->
+            <ul class="header_section">
+                {% for m in menu %}
+                    <li class="header_item headerButton"><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+                {% endfor %}
+            </ul>
+            <div class="header_section">
+                <div class="header_item headerButton images"><img src="{% static 'images/entrance.png' %}"></div>
+
+                <div class="header_item headerButton">
+                    {% if request.user.is_authenticated %}
+                        Добро пожаловать, {{ user.username }} | <a href="{% url 'users:logout' %}">Выход</a>
+                    {% else %}
+                        <a href="{% url 'users:login' %}">Вход\</a><a href="{% url 'users:register' %}">регистрация</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="header_logo">
+            <div class="header_logo_section">
+                <div class=""><a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}"></a></div>
+                <a class="logo" href="{% url 'home' %}">Саженцы цветов и<br>растений почтой</a>
+            </div>
+            <div class="header_logo_section">
+                <div class="search">
+                    <div class="telephone">
+                        <p class="mode">РЕЖИМ РАБОТЫ</p>
+                        <p class="bells">звонки по телефону</p>
+                        <p class="numbers">ПН-ПТ 9:00-17:00</p>
+                    </div>
+                    <div class="telephone">
+                        <p class="mode">ПОЗВОНИТЕ НАМ</p>
+                        <p class="numbers">+7(978) 911-22-92</p>
+                    </div>
+                    <!--<div class="telephone"><a class="payment" href="">СООБЩИТЬ ОБ ОПЛАТЕ</a></div>-->
+                </div>
+                <div class="search">
+                    <form class="search-form" name="search" action="{% url 'search' %}" method="get">
+                        <input class="search_one" type="text" name="s" value="" placeholder="Search">
+                        <input type="submit" value="" class="search_img" name="submit">
+                    </form>
+                </div>
+            </div>
+            <div class="header_logo_section">
+                <div class="cart">
+                    <a href="{% url 'cart:cart_detail' %}">
+                        <img src="{% static 'images/basket.png' %}">
+                        <span>
+                            {% with total_items=cart|length %}
+                                {% if cart|length > 0 %}
+                                    Кол-во тов. :
+                                    <a href="{% url 'cart:cart_detail' %}">
+                                        {{ total_items }}, <br>цена:
+                                        {{ cart.get_total_price }} руб.
+                                    </a>
+                                {% else %}
+                                    Ваша карзина пустая.
+                                {% endif %}
+                            {% endwith %}
+
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+<nav class="nav">
+    <div class="container menu-container">
+        {% show_menu %}
+
+    </div>
+    <div class="clearfix"></div>
+</nav>

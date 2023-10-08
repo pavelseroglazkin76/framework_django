@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Your shopping cart
+{% endblock %}
+{% block content %}
+<!--<div class="contents container">-->
+    <div class="karzina">
+        <h2 class="cartTitle">Корзина</h2>
+        {% if cart %}
+        <p class="choice">Вы выбрали такие товары:</p>
+        <table class="tableCart">
+            <thead>
+            <tr>
+                <th>Картинка</th>
+                <th>Наименование товара</th>
+                <th>Количество</th>
+                <th>Удалить</th>
+                <th>Цена за единицу</th>
+                <th>Цена</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in cart %}
+            {% with product=item.product %}
+            <tr>
+                <td>
+                    <a href="{{ product.get_absolute_url }}">
+                        <img class="cartImg" src="
+                                {% if product.image %}
+                                    {{ product.image.url }}
+                                {% endif %}">
+                    </a>
+                </td>
+                <td>{{ product.title }}</td>
+                <td>{{ item.quantity }}</td>
+                <td><a href="{% url 'cart:cart_remove' product.id %}">Remove</a></td>
+                <td class="num">${{ item.price }}</td>
+                <td class="num">${{ item.total_price }}</td>
+            </tr>
+            {% endwith %}
+            {% endfor %}
+            <tr class="total">
+                <td>Общая стоимость:</td>
+                <td colspan="4"></td>
+                <td class="num">{{ cart.get_total_price }} руб</td>
+            </tr>
+            </tbody>
+        </table>
+        {% else %}
+            <p class="basketEmpty">Корзина пустая</p>
+        {% endif %}
+        {% if cart %}
+
+        <div class="karzinaZaka">
+            <a href="{% url 'orders:order_create' %}">
+                <img src="{% static 'images/basket.png' %}" alt="basket">
+                <span>
+					Оформить заказ
+				</span>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+<!--</div>-->
+{% endblock %}
